@@ -10,9 +10,9 @@ workers_dev = true
 
 [env.production]
 
-PORT = "3000",
-MONGODB_URL = "mongodb+srv://diwanshu009:woUlkoth1huQVS8a@cluster0.zkio08w.mongodb.net/",
-SECRET_KEY = "123456",
-CLOUD_NAME = "dswmzd9jd",
-API_KEY = "995613777417384",
+PORT = "3000"
+MONGODB_URL = "mongodb+srv://diwanshu009:woUlkoth1huQVS8a@cluster0.zkio08w.mongodb.net/"
+SECRET_KEY = "123456"
+CLOUD_NAME = "dswmzd9jd"
+API_KEY = "995613777417384"
 API_SECRET = "nxVQbxHdtxb2xpBqtShKDt5_6wU"
