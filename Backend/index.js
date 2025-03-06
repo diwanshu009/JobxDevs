@@ -1,39 +1,36 @@
-import { connectDB } from './db/index.js';
-import userRoute from './routes/user.route.js';
-import companyRoute from './routes/company.route.js';
-import jobRoute from './routes/job.route.js';
-import applicationRoute from './routes/application.route.js';
+import express from 'express'
+import cookieParser from 'cookie-parser'
+import cors from 'cors'
+import 'dotenv/config'
+import userRoute from './routes/user.route.js'
+import { connectDB } from './db/index.js'
+import companyRoute from './routes/company.route.js'
+import jobRoute from './routes/job.route.js'
+import applicationRoute from './routes/application.route.js'
+const app = express()
 
-const MONGODB_URL = process.env.MONGODB_URL;
-
-addEventListener('fetch', event => {
-    event.respondWith(handleRequest(event.request));
-});
-
-async function handleRequest(request) {
-    const url = new URL(request.url);
-    const path = url.pathname;
-
-    if (path.startsWith('/api/v1/user')) {
-        return userRoute(request);
-    } else if (path.startsWith('/api/v1/company')) {
-        return companyRoute(request);
-    } else if (path.startsWith('/api/v1/job')) {
-        return jobRoute(request);
-    } else if (path.startsWith('/api/v1/application')) {
-        return applicationRoute(request);
-    } else {
-        return new Response('Not Found', { status: 404 });
-    }
+const corsOptions = {
+    origin: true, 
+    credentials: true, 
 }
 
-async function connectMongoDB() {
-    try {
-        const db = await connectDB(MONGODB_URL);
-        console.log('Database connected');
-    } catch (err) {
-        console.log('MongoDB connection error:', err);
-    }
-}
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+app.use(cookieParser())
+app.use(cors(corsOptions))
 
-connectMongoDB();
+app.use('/api/v1/user',userRoute)
+app.use('/api/v1/company',companyRoute)
+app.use('/api/v1/job',jobRoute)
+app.use('/api/v1/application',applicationRoute)
+
+app.listen(process.env.PORT,()=>{
+    connectDB()
+    .then(()=>{
+        console.log("database connected")
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+    console.log(`Server is running on ${process.env.PORT}`)
+})
