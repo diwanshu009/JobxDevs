@@ -39,4 +39,30 @@ This project is built using Node.js, Express, and MongoDB, with a focus on creat
 
 1. Clone this repository:
    git clone https://github.com/diwanshu009/JobxDevs.git
+   
    cd JobxDevs
+
+### API Endpoints : 
+   
+ ## User Routes
+   POST /api/v1/user/register: Register a new user.
+   POST /api/v1/user/login: Log in an existing user.
+   GET /api/v1/user/profile: Get the logged-in user's profile.
+   PUT /api/v1/user/profile: Update the user's profile.
+   
+ ## Company Routes
+   POST /api/v1/company/create: Create a new company profile.
+   GET /api/v1/company/:id: Get a company's profile by ID.
+   GET /api/v1/company/jobs: Get all jobs listed by a company.
+   
+ ## Job Routes
+   GET /api/v1/job: Get all available job listings.
+   POST /api/v1/job/create: Create a new job listing.
+   GET /api/v1/job/:id: Get details of a specific job listing.
+   
+ ## Application Routes
+   POST /api/v1/application/apply/:jobId: Apply for a job.
+   GET /api/v1/application/status: Get the status of a job application.
+   GET /api/v1/application/get: Get all job applications for the logged-in user.
+   POST /api/v1/application/status/:jobId/update: Update the status of a job application.
+   
