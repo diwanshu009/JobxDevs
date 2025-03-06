@@ -6,10 +6,9 @@ main = "index.js"
 [build]
 command = "npm install" 
 
-workers_dev = false
+workers_dev = true
 
 [env.production]
-workers_dev = false
 vars = {
   PORT = "3000",
   MONGODB_URL = "mongodb+srv://diwanshu009:woUlkoth1huQVS8a@cluster0.zkio08w.mongodb.net/",
