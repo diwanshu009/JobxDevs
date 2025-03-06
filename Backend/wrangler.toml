@@ -1,4 +1,4 @@
-name = "my-backend-worker"
+name = "jobxdevs"
 type = "javascript"
 
 main = "index.js" 
@@ -16,3 +16,5 @@ SECRET_KEY = "123456"
 CLOUD_NAME = "dswmzd9jd"
 API_KEY = "995613777417384"
 API_SECRET = "nxVQbxHdtxb2xpBqtShKDt5_6wU"
+
+compatibility_date = "2025-03-06"
